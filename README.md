@@ -10,6 +10,26 @@ For a complete step-by-step guide, watch my YouTube tutorial:
 
 **[🎥 Configure Traefik with 1 Command (30 Second Setup)](https://youtu.be/CY8nyQ_utB0)**
 
+## Important Notice for Docker 29 Users
+
+Docker version 29 introduces a new minimum API level which breaks older clients such as Traefik v2.x and other management tools.  
+If you are running Docker 29, add the following to your Docker daemon configuration:
+
+```bash
+sudo nano /etc/docker/daemon.json
+```
+
+```
+{
+  "min-api-version": "1.24"
+}
+```
+
+```
+sudo systemctl restart docker
+```
+This restores compatibility so Traefik and other containers can connect to the Docker API normally.
+
 ## 🚀 Quick Start
 
 ```bash
@@ -104,4 +124,5 @@ networks:
 **⭐ If you find this useful, please give it a star on GitHub!**
 
 **📺 Don't forget to watch the [video tutorial](https://youtu.be/CY8nyQ_utB0) for a complete walkthrough!**
+
 
